@@ -1,0 +1,27 @@
+{
+  "buildCommand": "cd ../.. && pnpm build --filter=admin",
+  "outputDirectory": ".next",
+  "installCommand": "pnpm install",
+  "framework": "nextjs",
+  "env": {
+    "NEXT_PUBLIC_API_URL": "@next_public_api_url",
+    "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY": "@next_public_clerk_publishable_key",
+    "CLERK_SECRET_KEY": "@clerk_secret_key",
+    "NEXT_PUBLIC_CLERK_SIGN_IN_URL": "/sign-in",
+    "NEXT_PUBLIC_CLERK_SIGN_UP_URL": "/sign-up"
+  },
+  "rewrites": [
+    {
+      "source": "/api/products/:path*",
+      "destination": "https://your-backend-api.vercel.app/products/:path*"
+    },
+    {
+      "source": "/api/orders/:path*",
+      "destination": "https://your-backend-api.vercel.app/orders/:path*"
+    },
+    {
+      "source": "/api/auth/:path*",
+      "destination": "https://your-backend-api.vercel.app/auth/:path*"
+    }
+  ]
+}
